@@ -25,6 +25,22 @@ type SockTabEntry struct {
 	Process    *Process
 }
 
+func (s SockTabEntry) String() string {
+	l := ""
+	if s.LocalAddr != nil {
+		l = s.LocalAddr.String()
+	}
+	r := ""
+	if s.RemoteAddr != nil {
+		r = s.RemoteAddr.String()
+	}
+	p := ""
+	if s.Process != nil {
+		p = s.Process.String()
+	}
+	return fmt.Sprintf("%s %s %s %s", l, r, s.State, p)
+}
+
 // Process holds the PID and process name to which each socket belongs
 type Process struct {
 	Pid  int
