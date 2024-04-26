@@ -1,3 +1,6 @@
+//go:build !windows
+// +build !windows
+
 // Package netstat provides primitives for getting socket information on a
 // Linux based operating system.
 package netstat
